@@ -23,6 +23,8 @@ def predict(frame,eyes):
         if(rpred[0]==0):
             lbl='Closed'
         prediction.append(rpred)
+
+        #print open or closed eye on image
         # font
         font = cv2.FONT_HERSHEY_SIMPLEX
 
