@@ -48,7 +48,7 @@ def start():
         cv2.imshow('Drowsiness detection',gray)
         cv2.moveWindow("Drowsiness detection",10,10)
         progess_bar.update(count)
-
+    print("closing...")
     vid.release()
     progess_bar.close()
     cv2.destroyAllWindows()
