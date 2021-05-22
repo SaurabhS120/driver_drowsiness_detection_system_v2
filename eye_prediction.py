@@ -4,7 +4,7 @@ import cv2
 import numpy as np
 
 lbl=['Close','Open']
-model = load_model('cnncat2.h5')
+model = load_model('open_close_eyes_model.h5')
 path = os.getcwd()
 
 def predict(frame,eyes):
@@ -13,10 +13,9 @@ def predict(frame,eyes):
     prediction=[]
     for eye in eyes:
         i=i+1
-        eye = cv2.resize(eye,(24,24))
+        eye = cv2.resize(eye,(28,28))
+        eye=eye.reshape(1,28,28,1)
         eye= eye/255
-        eye= eye.reshape(24,24,-1)
-        eye = np.expand_dims(eye,axis=0)
         rpred = model.predict_classes(eye)
         if(rpred[0]==1):
             lbl='Open'
